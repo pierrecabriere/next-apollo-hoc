@@ -10,9 +10,10 @@ export default async function (opts) {
   let res
 
   try {
-    res = await this.loginMutation({
+    const mutationOpts = {
       variables: opts.variables
-    });
+    }
+    res = await this.loginMutation(mutationOpts)
   } catch (e) {
     console.error(e)
     return false
