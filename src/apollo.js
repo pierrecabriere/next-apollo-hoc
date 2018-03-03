@@ -52,7 +52,7 @@ function getAuthorization() {
   const { cookieSource } = config.get()
 
   const cookieToken = Cookies.get(CONST_AUTHTOKEN_COOKIE, { source: cookieSource })
-  return cookieToken ? `Bearer ${cooieToken}` : null
+  return cookieToken ? `Bearer ${cookieToken}` : null
 }
 
 class Apollo {
