@@ -1,8 +1,8 @@
-# next-apollo
+# next-apollo-hoc
 
-[![Build Status](https://travis-ci.org/pierrecabriere/next-apollo.svg?branch=master)](https://travis-ci.org/pierrecabriere/next-apollo)
+[![Build Status](https://travis-ci.org/pierrecabriere/next-apollo-hoc.svg?branch=master)](https://travis-ci.org/pierrecabriere/next-apollo)
 
-**next-apollo is a flexible way to integrate Apollo Client with [next.js](https://github.com/zeit/next.js) with server-rendering support and authentication.**
+**next-apollo-hoc is a flexible way to integrate Apollo Client with [next.js](https://github.com/zeit/next.js) with server-rendering support and authentication.**
 
 ---
 

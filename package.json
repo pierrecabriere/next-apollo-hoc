@@ -1,8 +1,8 @@
 {
-  "name": "next-apollo",
+  "name": "next-apollo-hoc",
   "version": "1.0.0-beta",
   "description": "Apollo Client adapter for next.js with universal support and authentication tools",
-  "main": "next-apollo.js",
+  "main": "next-apollo-hoc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel ./src -d ./ --source-maps",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pierrecabriere/next-apollo.git"
+    "url": "git+https://github.com/pierrecabriere/next-apollo-hoc.git"
   },
   "keywords": [
     "apollo",
@@ -24,9 +24,9 @@
   "author": "hello@pierrecabriere.fr",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pierrecabriere/next-apollo/issues"
+    "url": "https://github.com/pierrecabriere/next-apollo-hoc/issues"
   },
-  "homepage": "https://github.com/pierrecabriere/next-apollo#readme",
+  "homepage": "https://github.com/pierrecabriere/next-apollo-hoc#readme",
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
