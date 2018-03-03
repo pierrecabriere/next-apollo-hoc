@@ -14,12 +14,17 @@ if (!process.browser) {
 }
 
 function createApolloClient(initialState) {
-  const { endpoint } = config.get()
+  const { endpoint, link } = config.get()
+  let httpLink
 
-  const httpLink = new HttpLink({
-    uri: endpoint, // Server URL (must be absolute)
-    credentials: 'include' // Additional fetch() options like `credentials` or `headers`
-  })
+  if ('object' === typeof link && !link.request) {
+    const linkOpts = Object.assign({
+      uri: endpoint, // Server URL (must be absolute)
+    }, link)
+    httpLink = new HttpLink(linkOpts)
+  } else {
+    httpLink = link
+  }
 
   const authMiddleware = new ApolloLink((operation, forward) => {
     const headers = {}

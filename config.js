@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -6,6 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 const defaultConfig = {
   endpoint: null,
   cookieSource: null,
+  link: {
+    credentials: 'include'
+  },
   guards: [],
   auth: {
     login: {
@@ -65,6 +68,9 @@ class Config {
     }
 
     if (config1 && config2) {
+      config1.link = Object.assign(config1.link || {}, config2.link || {});
+      delete config2.link;
+
       config1.auth = Object.assign(config1.auth || {}, config2.auth || {});
       delete config2.auth;
     }
