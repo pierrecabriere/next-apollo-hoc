@@ -17,7 +17,7 @@ export default async function (opts) {
 
   if (opts.update) {
     try {
-      opts.update(apollo.getClient(), null)
+      opts.update(apollo.getClient(), null, opts.updateStore)
     } catch (e) {
       console.error(e)
     }
