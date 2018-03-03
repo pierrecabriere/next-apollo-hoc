@@ -1,7 +1,7 @@
 {
   "name": "next-apollo",
   "version": "1.0.0-beta",
-  "description": "Apollo adapter for next.js with universal support",
+  "description": "Apollo Client adapter for next.js with universal support and authentication tools",
   "main": "next-apollo.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,6 +14,7 @@
   },
   "keywords": [
     "apollo",
+    "authentication",
     "graphql",
     "react",
     "nextjs",
