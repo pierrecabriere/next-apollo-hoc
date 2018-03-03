@@ -34,6 +34,8 @@ export default getDecorator((ComposedComponent, opts) => {
         composedInitialProps = await ComposedComponent.getInitialProps(ctx)
       }
 
+      const cookieSource = process.browser ? document : ctx.req.headers
+      config.add({ cookieSource })
       const apolloClient = apollo.getClient()
       try {
         await getDataFromTree(
@@ -54,8 +56,6 @@ export default getDecorator((ComposedComponent, opts) => {
       if (!process.browser) {
         Head.rewind()
       }
-
-      console.log('call guard')
 
       opts.guards.forEach(g => {
         let data = null

@@ -49,8 +49,6 @@ function createApolloClient(initialState) {
     const authorization = getAuthorization();
     if (authorization) headers.authorization = authorization;
 
-    console.log('call middleware');
-
     // add the authorization to the headers
     operation.setContext({
       headers
