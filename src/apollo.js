@@ -74,14 +74,6 @@ class Apollo {
 
     return this.client
   }
-
-  resetStore() {
-    return this.getClient().resetStore()
-  }
-
-  getCache() {
-    return this.getClient().cache.extract()
-  }
 }
 
 export default new Apollo()

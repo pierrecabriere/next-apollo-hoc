@@ -11,16 +11,7 @@ export default async function (opts) {
 
   try {
     res = await this.loginMutation({
-      variables: opts.variables,
-      update: async (store, { data }) => {
-        if (opts.update) {
-          try {
-            opts.update(store, data)
-          } catch (e) {
-            console.error(e)
-          }
-        }
-      }
+      variables: opts.variables
     });
   } catch (e) {
     console.error(e)
@@ -36,14 +27,10 @@ export default async function (opts) {
     return null
   }
 
-  apollo.resetStore()
-
-  if (opts.updateStore) {
-    try {
-      apollo.getClient().writeQuery(opts.updateStore(data))
-    } catch (e) {
-      console.error(e)
-    }
+  try {
+    await opts.update(apollo.getClient(), data, opts.updateStore)
+  } catch (e) {
+    console.error(e)
   }
 
   if (opts.next) {

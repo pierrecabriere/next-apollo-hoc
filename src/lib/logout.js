@@ -15,11 +15,9 @@ export default async function (opts) {
     return null
   }
 
-  apollo.resetStore()
-
-  if (opts.updateStore) {
+  if (opts.update) {
     try {
-      apollo.getClient().writeQuery(opts.updateStore(null))
+      opts.update(apollo.getClient(), null)
     } catch (e) {
       console.error(e)
     }

@@ -15,13 +15,20 @@ const defaultConfig = {
       cookieSource: null,
       variables: null,
       updateStore: null,
-      update: null,
+      update: async (apolloClient, data, updateStore) => {
+        await apolloClient.resetStore();
+        if (updateStore) await apolloClient.writeQuery(updateStore(data));
+      },
       next: null,
       authToken: null
     },
     logout: {
       cookieSource: null,
       updateStore: null,
+      update: async (apolloClient, data, updateStore) => {
+        await apolloClient.resetStore();
+        if (updateStore) await apolloClient.writeQuery(updateStore(data));
+      },
       next: null
     }
   }
