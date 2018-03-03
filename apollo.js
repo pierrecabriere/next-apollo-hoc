@@ -16,7 +16,7 @@ var _isomorphicUnfetch = require('isomorphic-unfetch');
 
 var _isomorphicUnfetch2 = _interopRequireDefault(_isomorphicUnfetch);
 
-var _jsCookies = require('js-cookies');
+var _flexibleCookies = require('flexible-cookies');
 
 var _config = require('./config');
 
@@ -65,7 +65,7 @@ function createApolloClient(initialState) {
 function getAuthorization() {
   const { cookieSource } = _config2.default.get();
 
-  const cookieToken = _jsCookies.Cookies.get(_const.CONST_AUTHTOKEN_COOKIE, { source: cookieSource });
+  const cookieToken = _flexibleCookies.Cookies.get(_const.CONST_AUTHTOKEN_COOKIE, { source: cookieSource });
   return cookieToken ? `Bearer ${cookieToken}` : null;
 }
 

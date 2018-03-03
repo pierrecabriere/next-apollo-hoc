@@ -1,4 +1,4 @@
-import { Cookies } from 'js-cookies'
+import { Cookies } from 'flexible-cookies'
 
 import config from '../config'
 import { CONST_AUTHTOKEN_COOKIE } from './const';

@@ -6,9 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 const defaultConfig = {
   endpoint: null,
   cookieSource: null,
-  apollo: {
-    data: null
-  },
   guards: [],
   auth: {
     login: {

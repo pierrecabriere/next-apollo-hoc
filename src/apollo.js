@@ -3,7 +3,7 @@ import { HttpLink } from 'apollo-link-http'
 import { ApolloLink, concat } from 'apollo-link'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import fetch from 'isomorphic-unfetch'
-import { Cookies } from 'js-cookies'
+import { Cookies } from 'flexible-cookies'
 
 import config from './config'
 import { CONST_AUTHTOKEN_COOKIE } from './lib/const'
