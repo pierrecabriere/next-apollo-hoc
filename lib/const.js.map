@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/lib/const.js"],"names":["CONST_AUTHTOKEN_COOKIE"],"mappings":";;;;;AAAO,MAAMA,0DAAyB,yBAA/B","file":"const.js","sourcesContent":["export const CONST_AUTHTOKEN_COOKIE = 'X-NEXT-APOLLO-AUTHTOKEN'"]}

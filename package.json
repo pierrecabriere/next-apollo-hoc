@@ -1,0 +1,47 @@
+{
+  "name": "next-apollo",
+  "version": "1.0.0-beta",
+  "description": "Apollo adapter for next.js with universal support",
+  "main": "next-apollo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel ./src -d ./ --source-maps",
+    "watch": "babel ./src --watch -d ./ --source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pierrecabriere/next-apollo.git"
+  },
+  "keywords": [
+    "apollo",
+    "graphql",
+    "react",
+    "nextjs",
+    "universal",
+    "server-rendering"
+  ],
+  "author": "hello@pierrecabriere.fr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pierrecabriere/next-apollo/issues"
+  },
+  "homepage": "https://github.com/pierrecabriere/next-apollo#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-react": "^6.24.1"
+  },
+  "dependencies": {
+    "apollo-client": "^2.2.5",
+    "isomorphic-unfetch": "^2.0.0",
+    "js-cookies": "git+https://github.com/pierrecabriere/js-cookies.git",
+    "next": "^5.0.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-apollo": "^2.0.4"
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/lib/index.js"],"names":["getDecorator","getComponentDisplayName"],"mappings":";;;;;;;;;;;sBAEEA,Y;;;;;;sBACAC,uB","file":"index.js","sourcesContent":["// component\nexport {\n  getDecorator,\n  getComponentDisplayName\n} from './component'"]}
