@@ -50,4 +50,3 @@ Object.defineProperty(exports, 'withAuth', {
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-//# sourceMappingURL=next-apollo-hoc.js.map

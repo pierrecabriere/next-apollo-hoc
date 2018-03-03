@@ -99,4 +99,3 @@ class Apollo {
 }
 
 exports.default = new Apollo();
-//# sourceMappingURL=apollo.js.map

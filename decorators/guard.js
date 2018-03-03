@@ -112,4 +112,3 @@ exports.default = (0, _component.getDecorator)((ComposedComponent, opts) => {
 
   return decorator;
 });
-//# sourceMappingURL=guard.js.map

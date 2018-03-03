@@ -87,4 +87,3 @@ class Config {
 }
 
 exports.default = new Config();
-//# sourceMappingURL=config.js.map

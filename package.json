@@ -5,8 +5,8 @@
   "main": "next-apollo-hoc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./src -d ./ --source-maps",
-    "watch": "babel ./src --watch -d ./ --source-maps"
+    "build": "babel ./src -d ./",
+    "watch": "babel ./src --watch -d ./"
   },
   "repository": {
     "type": "git",
