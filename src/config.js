@@ -1,11 +1,12 @@
 const defaultConfig = {
   endpoint: null,
-  cookieSource: null,
   link: {
     credentials: 'include'
   },
   guards: [],
+  cookieSource: null,
   auth: {
+    tokenType: 'Bearer',
     login: {
       cookieSource: null,
       variables: null,

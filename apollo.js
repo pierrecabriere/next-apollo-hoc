@@ -66,10 +66,10 @@ function createApolloClient(initialState) {
 }
 
 function getAuthorization() {
-  const { cookieSource } = _config2.default.get();
+  const { cookieSource, auth: { tokenType } } = _config2.default.get();
 
   const cookieToken = _flexibleCookies.Cookies.get(_const.CONST_AUTHTOKEN_COOKIE, { source: cookieSource });
-  return cookieToken ? `Bearer ${cookieToken}` : null;
+  return cookieToken ? `${tokenType} ${cookieToken}` : null;
 }
 
 class Apollo {
