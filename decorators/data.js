@@ -37,7 +37,7 @@ exports.default = (0, _component.getDecorator)((ComposedComponent, opts) => {
     opts.endpoint = opts.default;
     delete opts.default;
   }
-  _config2.default.add({ base: opts });
+  _config2.default.add(opts);
 
   class WithData extends _react2.default.Component {
 
@@ -58,7 +58,7 @@ exports.default = (0, _component.getDecorator)((ComposedComponent, opts) => {
       // Run all GraphQL queries in the component tree
       // and extract the resulting data
       const cookieSource = process.browser ? document : ctx.req.headers;
-      _config2.default.add({ base: { cookieSource } });
+      _config2.default.add({ cookieSource });
       const apolloClient = _apollo2.default.getClient();
       try {
         // Run all GraphQL queries
@@ -101,7 +101,7 @@ exports.default = (0, _component.getDecorator)((ComposedComponent, opts) => {
     constructor(props) {
       super(props);
       const cookieSource = process.browser ? document : this.props.serverState;
-      _config2.default.add({ base: { cookieSource } });
+      _config2.default.add({ cookieSource });
       this.apolloClient = _apollo2.default.getClient(this.props.serverState.apollo.data);
     }
 

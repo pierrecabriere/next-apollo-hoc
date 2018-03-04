@@ -35,11 +35,11 @@ exports.default = (0, _component.getDecorator)((ComposedComponent, opts) => {
 
   opts.guards.forEach((guard, index) => {
     if ('object' === typeof guard && guard.name) {
-      _config2.default.add({ auth: { guards: [guard] } });
+      _config2.default.addGuard(guard);
     }
 
     if ('string' === typeof guard) {
-      opts.guards[index] = _config2.default.get().auth.guards.find(g => guard === g.name);
+      opts.guards[index] = _config2.default.getGuard(guard);
     }
   });
 
@@ -54,7 +54,7 @@ exports.default = (0, _component.getDecorator)((ComposedComponent, opts) => {
       }
 
       const cookieSource = process.browser ? document : ctx.req.headers;
-      _config2.default.add({ base: { cookieSource } });
+      _config2.default.add({ cookieSource });
       const apolloClient = _apollo2.default.getClient();
       try {
         await (0, _reactApollo.getDataFromTree)(_react2.default.createElement(

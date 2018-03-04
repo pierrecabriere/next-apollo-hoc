@@ -5,8 +5,8 @@ import { CONST_AUTHTOKEN_COOKIE } from './const';
 import apollo from '../apollo'
 
 export default async function (opts) {
-  config.add({ auth: { login: opts } })
-  opts = config.get().auth.login
+  config.addAuth({ login: opts })
+  opts = config.getAuth().login
   let res
 
   try {

@@ -5,8 +5,8 @@ import { CONST_AUTHTOKEN_COOKIE } from './const'
 import apollo from '../apollo'
 
 export default async function (opts) {
-  config.add({ auth: { logout: opts } })
-  opts = config.get().auth.logout
+  config.addAuth({ logout: opts })
+  opts = config.getAuth().logout
 
   try {
     console.log('delete auth cookie')

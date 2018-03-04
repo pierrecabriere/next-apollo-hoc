@@ -12,7 +12,7 @@ export default getDecorator((ComposedComponent, opts) => {
     opts.endpoint = opts.default
     delete opts.default
   }
-  config.add({ base: opts })
+  config.add(opts)
 
   class WithData extends React.Component {
     static displayName = `WithData(${getComponentDisplayName(
@@ -40,7 +40,7 @@ export default getDecorator((ComposedComponent, opts) => {
       // Run all GraphQL queries in the component tree
       // and extract the resulting data
       const cookieSource = process.browser ? document : ctx.req.headers
-      config.add({ base: { cookieSource }})
+      config.add({ cookieSource })
       const apolloClient = apollo.getClient()
       try {
         // Run all GraphQL queries
@@ -85,7 +85,7 @@ export default getDecorator((ComposedComponent, opts) => {
     constructor(props) {
       super(props)
       const cookieSource = process.browser ? document : this.props.serverState
-      config.add({ base: { cookieSource }})
+      config.add({ cookieSource })
       this.apolloClient = apollo.getClient(this.props.serverState.apollo.data)
     }
 

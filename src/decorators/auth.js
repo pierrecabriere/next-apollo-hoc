@@ -8,8 +8,8 @@ import config from '../config'
 import { getDecorator, getComponentDisplayName } from '../lib/component'
 
 export default getDecorator((ComposedComponent, opts) => {
-  config.add({ auth: opts })
-  opts = config.get().auth
+  config.addAuth(opts)
+  opts = config.getAuth()
 
   class WithAuth extends React.Component {
     static displayName = `WithAuth(${getComponentDisplayName(

@@ -7,7 +7,6 @@ const defaultConfig = {
     }
   },
   auth: {
-    guards: [],
     tokenType: 'Bearer',
     login: {
       cookieSource: null,
@@ -31,7 +30,8 @@ const defaultConfig = {
       },
       next: null
     }
-  }
+  },
+  guards: []
 }
 
 class Config {
@@ -93,11 +93,35 @@ class Config {
   }
 
   add(config) {
-    this.config = Config.assign(this.config, config)
+    this.config = Config.assign(this.config, { base: config })
+  }
+
+  addAuth(config) {
+    this.config = Config.assign(this.config, { auth: config })
+  }
+
+  addGuard(config) {
+    this.config = Config.assign(this.config, { guards: [config] })
+  }
+
+  addGuards(config) {
+    this.config = Config.assign(this.config, { guards: config })
   }
 
   get() {
-    return this.config
+    return this.config.base
+  }
+
+  getAuth() {
+    return this.config.auth
+  }
+
+  getGuard(name) {
+    return this.config.guards.find(guard => name === guard.name)
+  }
+
+  getGuards() {
+    return this.config.guards
   }
 }
 

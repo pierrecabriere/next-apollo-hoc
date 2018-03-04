@@ -29,8 +29,8 @@ var _component = require('../lib/component');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _component.getDecorator)((ComposedComponent, opts) => {
-  _config2.default.add({ auth: opts });
-  opts = _config2.default.get().auth;
+  _config2.default.addAuth(opts);
+  opts = _config2.default.getAuth();
 
   class WithAuth extends _react2.default.Component {
 
