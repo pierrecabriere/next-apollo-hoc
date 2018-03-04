@@ -23,6 +23,7 @@ const MyComponent = (props) => { // your page component
 
 export default withData('https://myendpoint.com')(MyComponent)
 ```
+That's it !
 
 You can also set an HttpLink configuration :
 ```jsx
