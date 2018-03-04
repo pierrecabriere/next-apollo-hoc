@@ -1,6 +1,6 @@
 {
   "name": "next-apollo-hoc",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0-beta.7",
   "description": "Apollo Client adapter for next.js with universal support and authentication tools",
   "main": "next-apollo-hoc.js",
   "scripts": {
