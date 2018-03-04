@@ -13,11 +13,11 @@ export default getDecorator((ComposedComponent, opts) => {
 
   opts.guards.forEach((guard, index) => {
     if ('object' === typeof guard && guard.name) {
-      config.add({ guards: [ guard ] })
+      config.add({ auth: { guards: [ guard ] }})
     }
 
     if ('string' === typeof guard) {
-      opts.guards[index] = config.get().guards.find(g => guard === g.name)
+      opts.guards[index] = config.get().auth.guards.find(g => guard === g.name)
     }
   })
 
@@ -35,7 +35,7 @@ export default getDecorator((ComposedComponent, opts) => {
       }
 
       const cookieSource = process.browser ? document : ctx.req.headers
-      config.add({ cookieSource })
+      config.add({ base: { cookieSource }})
       const apolloClient = apollo.getClient()
       try {
         await getDataFromTree(

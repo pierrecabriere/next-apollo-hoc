@@ -32,7 +32,7 @@ if (!process.browser) {
 }
 
 function createApolloClient(initialState) {
-  const { endpoint, link } = _config2.default.get();
+  const { base: { endpoint, link } } = _config2.default.get();
   let httpLink;
 
   if ('object' === typeof link && !link.request) {
@@ -43,6 +43,8 @@ function createApolloClient(initialState) {
   } else {
     httpLink = link;
   }
+
+  console.log(_config2.default.get());
 
   const authMiddleware = new _apolloLink.ApolloLink((operation, forward) => {
     const headers = {};
@@ -66,7 +68,7 @@ function createApolloClient(initialState) {
 }
 
 function getAuthorization() {
-  const { cookieSource, auth: { tokenType } } = _config2.default.get();
+  const { base: { cookieSource }, auth: { tokenType } } = _config2.default.get();
 
   const cookieToken = _flexibleCookies.Cookies.get(_const.CONST_AUTHTOKEN_COOKIE, { source: cookieSource });
   return cookieToken ? `${tokenType} ${cookieToken}` : null;

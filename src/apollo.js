@@ -14,7 +14,7 @@ if (!process.browser) {
 }
 
 function createApolloClient(initialState) {
-  const { endpoint, link } = config.get()
+  const { base: { endpoint, link }} = config.get()
   let httpLink
 
   if ('object' === typeof link && !link.request) {
@@ -25,6 +25,8 @@ function createApolloClient(initialState) {
   } else {
     httpLink = link
   }
+
+  console.log(config.get())
 
   const authMiddleware = new ApolloLink((operation, forward) => {
     const headers = {}
@@ -49,7 +51,7 @@ function createApolloClient(initialState) {
 }
 
 function getAuthorization() {
-  const { cookieSource, auth: { tokenType } } = config.get()
+  const { base: { cookieSource }, auth: { tokenType } } = config.get()
 
   const cookieToken = Cookies.get(CONST_AUTHTOKEN_COOKIE, { source: cookieSource })
   return cookieToken ? `${tokenType} ${cookieToken}` : null
