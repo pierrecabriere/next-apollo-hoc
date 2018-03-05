@@ -19,6 +19,7 @@
   - [Use decorators](#71---use-decorators)
   - [Import your graphql queries/mutations from files ](#72---import-your-graphql-queriesmutations-from-files)
   - [Use the starter kit](#73---use-the-starter-kit)
+  [Roadmap](#8---roadmap)
 
 ## 1 - Installation
 ```
@@ -385,5 +386,10 @@ export default class extends React.Component {
 The **[next-apollo-starter-kit]((https://github.com/pierrecabriere/next-apollo-starter-kit))** provides a configuration with all the best practices for starting an universal [next.js](https://github.com/zeit/next.js) app based on apollo.<br/>
 The kit includes the **next-apollo-hoc** library and all the tips and tricks listed above.<br/>
 You can download it on : [https://github.com/pierrecabriere/next-apollo-starter-kit](https://github.com/pierrecabriere/next-apollo-starter-kit)
+
+## 8 - Roadmap
+
+- add ability to create middlewares from the config class
+- any idea ?
 
 # 🚀
