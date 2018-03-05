@@ -9,7 +9,6 @@ const defaultConfig = {
   auth: {
     tokenType: 'Bearer',
     login: {
-      cookieSource: null,
       variables: null,
       updateStore: null,
       update: async (apolloClient, data, updateStore) => {
@@ -21,7 +20,6 @@ const defaultConfig = {
       authToken: null
     },
     logout: {
-      cookieSource: null,
       updateStore: null,
       update: async (apolloClient, data, updateStore) => {
         await apolloClient.resetStore()

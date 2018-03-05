@@ -53,7 +53,13 @@ function getAuthorization() {
   const { tokenType } = config.getAuth()
 
   const cookieToken = Cookies.get(CONST_AUTHTOKEN_COOKIE, { source: cookieSource })
-  return cookieToken ? `${tokenType} ${cookieToken}` : null
+  if (!cookieToken)
+    return null
+
+  if (cookieToken.match(`^${tokenType}`, 'i'))
+    return cookieToken
+
+  return `${tokenType} ${cookieToken}`
 }
 
 class Apollo {

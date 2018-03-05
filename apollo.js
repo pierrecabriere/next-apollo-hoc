@@ -70,7 +70,11 @@ function getAuthorization() {
   const { tokenType } = _config2.default.getAuth();
 
   const cookieToken = _flexibleCookies.Cookies.get(_const.CONST_AUTHTOKEN_COOKIE, { source: cookieSource });
-  return cookieToken ? `${tokenType} ${cookieToken}` : null;
+  if (!cookieToken) return null;
+
+  if (cookieToken.match(`^${tokenType}`, 'i')) return cookieToken;
+
+  return `${tokenType} ${cookieToken}`;
 }
 
 class Apollo {
