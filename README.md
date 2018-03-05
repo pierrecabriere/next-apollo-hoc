@@ -83,11 +83,18 @@ const MyComponent = (props) => {
 + export default withData(MyComponent)
 ```
 
-## 4. Authentication
+**However, you are still able to override or complete your configuration directly inside the HOC declaration**
+```diff
+import { withData } from '../lib/next-apollo-hoc'
 
-### 4.1 Login
-### 4.2 Logout
+...
 
-## Guards
+export default withData({
+  link: {
+    credentials: 'same-origin', // override the configuration set in lib/next-apollo-hoc.js
+    useGETForQueries: true // add specific option, only set for MyComponent
+  }
+})(MyComponent)
+```
 
 > more documentation to come for **withAuth** and **withGuard** HOCs
