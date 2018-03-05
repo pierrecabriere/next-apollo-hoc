@@ -3,7 +3,7 @@ const defaultConfig = {
     endpoint: null,
     cookieSource: null,
     link: {
-      credentials: 'include'
+      credentials: 'same-origin'
     }
   },
   auth: {
