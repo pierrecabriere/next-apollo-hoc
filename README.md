@@ -7,24 +7,24 @@
 
 ---
 
-- [Installation](#1-installation)
-- [Basic usage](#2-basic-usage)
-- [Externalize configuration](#3-externalize-configuration-(recommended))
-- [Authentication](#4-authentication)
-  - [Login](#4.1-login)
-  - [Logout](#4.2-logout)
-- [Guards](#5-guards)
-- [Example](#6-example)
-- [Tips and tricks](#7-tips-and-tricks)
-  - [Use decorators](#7.1-use-decorators)
-  - [Use the starter kit](#7.2-use-the-starter-kit)
+- [Installation](#1---installation)
+- [Basic usage](#2---basic-usage)
+- [Externalize configuration](#3---externalize-configuration-recommended)
+- [Authentication](#4---authentication)
+  - [Login](#41---login)
+  - [Logout](#42---logout)
+- [Guards](#5---guards)
+- [Example](#6---example)
+- [Tips and tricks](#7---tips-and-tricks)
+  - [Use decorators](#71---use-decorators)
+  - [Use the starter kit](#72---use-the-starter-kit)
 
-## 1 Installation
+## 1 - Installation
 ```
 npm install --save next-apollo-hoc
 ```
 
-## 2 Basic usage
+## 2 - Basic usage
 **next-apollo-hoc** provides a **withData** HOC (High-Order Component) that you can easily configure, just by giving your graphql endpoint :
 ```jsx
 import { withData } from 'next-apollo-hoc'
@@ -60,7 +60,7 @@ The **withData** HOC integrates apollo by wrapping your Component inside an Apol
 }
 ```
 
-## 3 Externalize configuration (recommended)
+## 3 - Externalize configuration (recommended)
 **next-apollo-hoc** has a config class to create a global configuration :
 ```jsx
 // lib/next-apollo-hoc.js
@@ -109,7 +109,7 @@ export default withData({
 })(MyComponent)
 ```
 
-## 4 Authentication
+## 4 - Authentication
 
 **next-apollo-hoc** provide tools to manage authentication (with token authorization) in your app. The HOC **withAuth** (that you can configure) will inject these tools inside your component props, so you will be able to use them where you want in your code.<br/>
 To configure **withAuth**, the config component has an addAuth method. Just like for the **withData** HOC, you can set a global configuration and override some options inside the HOC call, or set the whole configuration directly inside the HOC (see [how to externalize configuration](#3.-externalize-configuration-(recommended)))
@@ -141,7 +141,7 @@ export default withAuth({
 })(MyComponent)
 ```
 
-### 4.1 Login
+### 4.1 - Login
 
 ```jsx
 this.props.login()
@@ -200,7 +200,7 @@ updateStore function result will be used in the writeQuery method call of the Ap
 }
 ```
 
-### 4.2 Logout
+### 4.2 - Logout
 
 ```jsx
 this.props.logout()
@@ -226,7 +226,7 @@ Just like login, you can configure an updateStore, update and next function.
 }
 ```
 
-## 5 Guards
+## 5 - Guards
 
 Once the user is logged and we have an authorization token, we are able to verify the user can access the data before rendering the component.<br/>
 **next-apollo-hoc** provides a **withGuard** HOC. you can define your guards config in the global configuration or directly in the HOC call.<br/>
@@ -280,13 +280,13 @@ You can combine multiple guards, like below :
 export default withGuard('logged', 'loggedAdmin')(MyComponentForLoggedAdminUsers)
 ```
 
-## 6 Example
+## - 6 Example
 
 > Example app to come
 
-## 7 tips and tricks
+## - 7 tips and tricks
 
-### 7.1 Use decorators
+### 7.1 - Use decorators
 
 Instead of wrapping the export of your Component inside HOCs, a good usage is to use ES6 decorators. To do such a thing, you have to use the *transform-decorators-legacy* babel plugin :
 ```
@@ -316,6 +316,6 @@ export default class extends React.Component {
 }
 ```
 
-### 7.2 Use the starter kit
+### 7.2 - Use the starter kit
 
 > Starter kit to come, based on next.js, next-apollo-hoc, and the best practices of code writing
