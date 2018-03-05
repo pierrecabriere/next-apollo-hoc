@@ -93,7 +93,7 @@ export default getHOC((ComposedComponent, opts) => {
   let decorator = WithGuard
   opts.guards.forEach(guard => {
     if (guard.query)
-      decorator = graphql(guard.query, { errorPolicy: 'all' })(decorator)
+      decorator = graphql(guard.query, { options: { errorPolicy: 'all' } })(decorator)
   })
 
   return decorator
