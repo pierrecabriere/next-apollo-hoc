@@ -119,6 +119,7 @@ To configure **withAuth**, the config component has an addAuth method. Just like
 **Default configuration**
 ```jsx
 {
+  defaultToken: null, // the token used in header authorization when no user is logged
   tokenType: 'Bearer', // the authorization token type
   login: { ... } // login configuration, see below
   logout: { ... } // logout configuration, see below
@@ -390,7 +391,7 @@ You can download it on : [https://github.com/pierrecabriere/next-apollo-starter-
 ## 8 - Roadmap
 
 - add ability to create middlewares from the config class
-- set a default token in config for authorize all requests (even unauthenticated)
+- ~~set a default token in config for authorize all requests (even unauthenticated)~~
 - any idea ?
 
 # 🚀
