@@ -113,7 +113,7 @@ export default withData({
 ## 4 - Authentication
 
 **next-apollo-hoc** provide tools to manage authentication (with token authorization) in your app. The HOC **withAuth** (that you can configure) will inject these tools inside your component props, so you will be able to use them where you want in your code.<br/>
-To configure **withAuth**, the config component has an addAuth method. Just like for the **withData** HOC, you can set a global configuration and override some options inside the HOC call, or set the whole configuration directly inside the HOC (see [how to externalize configuration](#3.-externalize-configuration-(recommended)))
+To configure **withAuth**, the config component has an addAuth method. Just like for the **withData** HOC, you can set a global configuration and override some options inside the HOC call, or set the whole configuration directly inside the HOC (see [how to externalize configuration](#3---externalize-configuration-recommended))
 
 **Default configuration**
 ```jsx
