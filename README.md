@@ -267,7 +267,7 @@ config.addGuard({
 export default withGuard('logged')(MyComponentForLoggedUsers)
 ```
 
-**Override configuration**
+**Override configuration**<br/>
 You can also override a guard configuration by its name directly in the withGuard call :
 ```jsx
 export default withGuard({
@@ -276,7 +276,7 @@ export default withGuard({
 })(MyComponentForLoggedUsers)
 ```
 
-**Combine guards**
+**Combine guards**<br/>
 You can combine multiple guards, like below :
 ```jsx
 export default withGuard('logged', 'loggedAdmin')(MyComponentForLoggedAdminUsers)
