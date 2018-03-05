@@ -280,11 +280,11 @@ You can combine multiple guards, like below :
 export default withGuard('logged', 'loggedAdmin')(MyComponentForLoggedAdminUsers)
 ```
 
-## - 6 Example
+## 6 - Example
 
 > Example app to come
 
-## - 7 tips and tricks
+## 7 - tips and tricks
 
 ### 7.1 - Use decorators
 
