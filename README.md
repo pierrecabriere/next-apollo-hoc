@@ -17,7 +17,7 @@
 - [Example](#6---example)
 - [Tips and tricks](#7---tips-and-tricks)
   - [Use decorators](#71---use-decorators)
-  - [Import your graphql queries/mutations from files ](#72---import-your-graphql-queries/mutations-from-files)
+  - [Import your graphql queries/mutations from files ](#72---import-your-graphql-queriesmutations-from-files)
   - [Use the starter kit](#73---use-the-starter-kit)
 
 ## 1 - Installation
