@@ -3,7 +3,7 @@ export function getComponentDisplayName(Component) {
   return Component.displayName || Component.name || 'Unknown'
 }
 
-export function getDecorator(getComponent) {
+export function getHOC(getComponent) {
   return (...configs) => {
     if ('function' === typeof configs[0]) {
       const ComposedComponent = configs[0];

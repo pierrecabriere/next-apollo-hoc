@@ -5,9 +5,9 @@ import Head from 'next/head'
 
 import config from '../config'
 import apollo from '../apollo'
-import { getDecorator, getComponentDisplayName } from '../lib/component'
+import { getHOC, getComponentDisplayName } from '../lib/component'
 
-export default getDecorator((ComposedComponent, opts) => {
+export default getHOC((ComposedComponent, opts) => {
   if (opts.default) {
     opts.endpoint = opts.default
     delete opts.default

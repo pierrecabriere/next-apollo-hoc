@@ -32,7 +32,7 @@ var _component = require('../lib/component');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = (0, _component.getDecorator)((ComposedComponent, opts) => {
+exports.default = (0, _component.getHOC)((ComposedComponent, opts) => {
   if (opts.default) {
     opts.endpoint = opts.default;
     delete opts.default;

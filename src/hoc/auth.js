@@ -5,9 +5,9 @@ import login from '../lib/login'
 import logout from '../lib/logout'
 
 import config from '../config'
-import { getDecorator, getComponentDisplayName } from '../lib/component'
+import { getHOC, getComponentDisplayName } from '../lib/component'
 
-export default getDecorator((ComposedComponent, opts) => {
+export default getHOC((ComposedComponent, opts) => {
   config.addAuth(opts)
   opts = config.getAuth()
 

@@ -28,7 +28,7 @@ var _component = require('../lib/component');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = (0, _component.getDecorator)((ComposedComponent, opts) => {
+exports.default = (0, _component.getHOC)((ComposedComponent, opts) => {
   _config2.default.addAuth(opts);
   opts = _config2.default.getAuth();
 

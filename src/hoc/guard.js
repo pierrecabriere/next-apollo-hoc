@@ -2,11 +2,11 @@ import React from 'react'
 import { graphql, ApolloProvider, getDataFromTree } from 'react-apollo'
 import Head from 'next/head'
 
-import { getDecorator, getComponentDisplayName } from '../lib/component'
+import { getHOC, getComponentDisplayName } from '../lib/component'
 import apollo from '../apollo'
 import config from "../config";
 
-export default getDecorator((ComposedComponent, opts) => {
+export default getHOC((ComposedComponent, opts) => {
   if (opts.default) {
     opts.guards = [opts.default]
   }
