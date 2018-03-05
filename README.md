@@ -17,7 +17,8 @@
 - [Example](#6---example)
 - [Tips and tricks](#7---tips-and-tricks)
   - [Use decorators](#71---use-decorators)
-  - [Use the starter kit](#72---use-the-starter-kit)
+  - [Import your graphql queries/mutations from files ](#72---import-your-graphql-queries/mutations-from-files)
+  - [Use the starter kit](#73---use-the-starter-kit)
 
 ## 1 - Installation
 ```
@@ -318,7 +319,7 @@ export default class extends React.Component {
 
 ### 7.1 - Use decorators
 
-Instead of wrapping the export of your Component inside HOCs, a good usage is to use ES6 decorators. To do such a thing, you have to use the *transform-decorators-legacy* babel plugin :
+Instead of wrapping the export of your Component inside HOCs, you can use ES6 decorators. To do such a thing, you have to use the *transform-decorators-legacy* babel plugin :
 ```
 npm install --save-dev babel-plugin-transform-decorators-legacy
 ```
@@ -328,7 +329,7 @@ create or edit a .babelrc file at the root of your project
 {
   "presets": "next/babel",
   "plugins": [
-+    "babel-plugin-inline-import-graphql-ast"
++    "transform-decorators-legacy"
   ]
 }
 ```
@@ -346,9 +347,40 @@ export default class extends React.Component {
 }
 ```
 
+### 7.2 - Import your graphql queries/mutations from files
+
+Instead of declaring your graphql queries and mutations directly in your component file with the *graphql-tag*, you can load them from .gql files :
+```
+npm install --save-dev babel-plugin-inline-import-graphql-ast
+```
+
+create or edit a .babelrc file at the root of your project
+```diff
+{
+  "presets": "next/babel",
+  "plugins": [
++    "babel-plugin-inline-import-graphql-ast"
+  ]
+}
+```
+
+You can now load your queries and mutations from files :
+```jsx
+import { graphql } from 'react-apollo'
+import myQuery from '../graphql/queries/my_query.gql'
+
+@withData
+@graphql(myQuery)
+export default class extends React.Component {
+  render() => (
+    <div>Component that will load data from a graphql endpoint</div>
+  )
+}
+```
+
 > More tips to come
 
-### 7.2 - Use the starter kit
+### 7.3 - Use the starter kit
 
 The **[next-apollo-starter-kit]((https://github.com/pierrecabriere/next-apollo-starter-kit))** provides a configuration with all the best practices for starting an universal [next.js](https://github.com/zeit/next.js) app based on apollo.<br/>
 The kit includes the **next-apollo-hoc** library and all the tips and tricks listed above.<br/>
