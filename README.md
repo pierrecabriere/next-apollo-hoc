@@ -7,12 +7,12 @@
 
 ---
 
-## Installation
+## 1. Installation
 ```
 npm install --save next-apollo-hoc
 ```
 
-## Basic usage
+## 2. Basic usage
 next-apollo-hoc is providing a **withData** HOC (High-Order Component) that you can easily configure on a page :
 ```jsx
 import { withData } from 'next-apollo-hoc'
@@ -23,7 +23,7 @@ const MyComponent = (props) => { // your page component
 
 export default withData('https://myendpoint.com')(MyComponent)
 ```
-That's it !
+That's it, you are now able to fetch data from your graphql endpoint in any child component with universal support !
 
 You can also set an HttpLink configuration :
 ```jsx
@@ -35,10 +35,20 @@ export default withData({
 })(MyComponent)
 ```
 
+The default configuration for the **withData** HOC is :
+```jsx
+{
+  endpoint: null, // graphql endpoint
+  link: { // HttpLink configuration, see ApolloClient API documentation
+    credentials: 'same-origin'
+  }
+}
+```
+
 The **withData** HOC integrates apollo by wrapping your Component inside an ApolloProvider Component. The generated ApolloClient is keeping data from the server then this module has a full-universal support.<br/>
 *Even if you can set up this on any Component, it is highly recommended to set it on the highest Component you have (suppose it is your page).*
 
-## Externalize configuration (recommended)
+## 3. Externalize configuration (recommended)
 next-apollo-hoc lets the ability to create an external configuration file :
 ```jsx
 // lib/next-apollo-hoc.js
