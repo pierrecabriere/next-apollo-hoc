@@ -22,7 +22,6 @@ export default async function (opts) {
 
   try {
     const authToken = opts.authToken(data)
-    console.log('create auth cookie')
     Cookies.set(CONST_AUTHTOKEN_COOKIE, authToken, { source: opts.cookieSource, days: 365 })
   } catch (e) {
     console.error(e)

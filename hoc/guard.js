@@ -107,7 +107,7 @@ exports.default = (0, _component.getDecorator)((ComposedComponent, opts) => {
   WithGuard.displayName = `WithGuard(${(0, _component.getComponentDisplayName)(ComposedComponent)})`;
   let decorator = WithGuard;
   opts.guards.forEach(guard => {
-    if (guard.query) decorator = (0, _reactApollo.graphql)(guard.query)(decorator);
+    if (guard.query) decorator = (0, _reactApollo.graphql)(guard.query, { errorPolicy: 'all' })(decorator);
   });
 
   return decorator;

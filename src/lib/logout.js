@@ -9,7 +9,6 @@ export default async function (opts) {
   opts = config.getAuth().logout
 
   try {
-    console.log('delete auth cookie')
     Cookies.delete(CONST_AUTHTOKEN_COOKIE, { source: opts.cookieSource })
   } catch (e) {
     console.error(e)
