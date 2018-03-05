@@ -72,8 +72,7 @@ export default getHOC((ComposedComponent, opts) => {
       serverState = {
         apollo: {
           data: apolloClient.cache.extract(),
-        },
-        cookie: cookieSource.cookie
+        }
       }
 
       return {
@@ -84,8 +83,6 @@ export default getHOC((ComposedComponent, opts) => {
 
     constructor(props) {
       super(props)
-      const cookieSource = process.browser ? document : this.props.serverState
-      config.add({ cookieSource })
       this.apolloClient = apollo.getClient(this.props.serverState.apollo.data)
     }
 
