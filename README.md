@@ -19,7 +19,7 @@
   - [Use decorators](#71---use-decorators)
   - [Import your graphql queries/mutations from files ](#72---import-your-graphql-queriesmutations-from-files)
   - [Use the starter kit](#73---use-the-starter-kit)
-  [Roadmap](#8---roadmap)
+- [Roadmap](#8---roadmap)
 
 ## 1 - Installation
 ```
