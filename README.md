@@ -83,4 +83,11 @@ const MyComponent = (props) => {
 + export default withData(MyComponent)
 ```
 
+## 4. Authentication
+
+### 4.1 Login
+### 4.2 Logout
+
+## Guards
+
 > more documentation to come for **withAuth** and **withGuard** HOCs
