@@ -22,30 +22,30 @@ Object.defineProperty(exports, 'config', {
   }
 });
 
-var _data = require('./decorators/data');
+var _withData = require('./withData');
 
 Object.defineProperty(exports, 'withData', {
   enumerable: true,
   get: function () {
-    return _interopRequireDefault(_data).default;
+    return _interopRequireDefault(_withData).default;
   }
 });
 
-var _guard = require('./decorators/guard');
+var _withGuard = require('./withGuard');
 
 Object.defineProperty(exports, 'withGuard', {
   enumerable: true,
   get: function () {
-    return _interopRequireDefault(_guard).default;
+    return _interopRequireDefault(_withGuard).default;
   }
 });
 
-var _auth = require('./decorators/auth');
+var _withAuth = require('./withAuth');
 
 Object.defineProperty(exports, 'withAuth', {
   enumerable: true,
   get: function () {
-    return _interopRequireDefault(_auth).default;
+    return _interopRequireDefault(_withAuth).default;
   }
 });
 
