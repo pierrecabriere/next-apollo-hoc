@@ -97,14 +97,4 @@ export default withData({
 })(MyComponent)
 ```
 
-## 4. Authentication
-
-### 4.1 Login
-
-### 4.2 Logout
-
-## 5. Guards
-
-## 6. tips and tricks
-
 > more documentation to come for **withAuth** and **withGuard** HOCs
