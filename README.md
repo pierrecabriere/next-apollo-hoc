@@ -390,6 +390,7 @@ You can download it on : [https://github.com/pierrecabriere/next-apollo-starter-
 ## 8 - Roadmap
 
 - add ability to create middlewares from the config class
+- set a default token in config for authorize all requests (even unauthenticated)
 - any idea ?
 
 # 🚀
