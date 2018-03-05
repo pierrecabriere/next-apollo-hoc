@@ -8,6 +8,7 @@ const defaultConfig = {
   },
   auth: {
     tokenType: 'Bearer',
+    defaultToken: null,
     login: {
       variables: null,
       updateStore: null,

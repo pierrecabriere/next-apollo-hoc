@@ -50,9 +50,9 @@ function createApolloClient(initialState) {
 
 function getAuthorization() {
   const { cookieSource } = config.get()
-  const { tokenType } = config.getAuth()
+  const { tokenType, defaultToken } = config.getAuth()
 
-  const cookieToken = Cookies.get(CONST_AUTHTOKEN_COOKIE, { source: cookieSource })
+  const cookieToken = Cookies.get(CONST_AUTHTOKEN_COOKIE, { source: cookieSource }) || defaultToken
   if (!cookieToken)
     return null
 

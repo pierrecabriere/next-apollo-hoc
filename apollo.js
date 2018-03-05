@@ -67,9 +67,9 @@ function createApolloClient(initialState) {
 
 function getAuthorization() {
   const { cookieSource } = _config2.default.get();
-  const { tokenType } = _config2.default.getAuth();
+  const { tokenType, defaultToken } = _config2.default.getAuth();
 
-  const cookieToken = _flexibleCookies.Cookies.get(_const.CONST_AUTHTOKEN_COOKIE, { source: cookieSource });
+  const cookieToken = _flexibleCookies.Cookies.get(_const.CONST_AUTHTOKEN_COOKIE, { source: cookieSource }) || defaultToken;
   if (!cookieToken) return null;
 
   if (cookieToken.match(`^${tokenType}`, 'i')) return cookieToken;
