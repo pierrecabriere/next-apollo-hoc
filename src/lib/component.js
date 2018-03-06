@@ -6,8 +6,8 @@ export function getComponentDisplayName(Component) {
 export function getHOC(getComponent) {
   return (...configs) => {
     if ('function' === typeof configs[0]) {
-      const ComposedComponent = configs[0];
-      return getComponent(ComposedComponent, {});
+      const ComposedComponent = configs[0]
+      return getComponent(ComposedComponent, {})
     }
 
     if (1 === configs.length && 'object' !== typeof configs[0]) {

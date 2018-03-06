@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 import { getHOC, getComponentDisplayName } from '../lib/component'
 import apollo from '../apollo'
-import config from "../config";
+import config from "../config"
 
 export default getHOC((ComposedComponent, opts) => {
   if (opts.default) {
@@ -93,7 +93,7 @@ export default getHOC((ComposedComponent, opts) => {
   let decorator = WithGuard
   opts.guards.forEach(guard => {
     if (guard.query)
-      decorator = graphql(guard.query, { options: { errorPolicy: 'all' } })(decorator)
+      decorator = graphql(guard.query, { options: { errorPolicy: 'all' }})(decorator)
   })
 
   return decorator
