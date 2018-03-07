@@ -79,7 +79,7 @@ config.add({
 export * from 'next-apollo-hoc'
 ```
 
-Then, you just have to import HOCs from your file (to load the configuration) and then you will don't need to set an inline configuration anymore :
+Then, you just have to import HOCs from your file (to load the configuration) and then you will not need to set an inline configuration anymore :
 ```diff
 - import { withData } from 'next-apollo-hoc'
 + import { withData } from '../lib/next-apollo-hoc'
