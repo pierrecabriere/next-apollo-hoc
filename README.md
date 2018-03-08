@@ -50,7 +50,12 @@ export default withData({
 ```
 
 The **withData** HOC integrates apollo by wrapping your Component inside an ApolloProvider Component. The generated ApolloClient is keeping data from the server then this module has a full-universal support.<br/>
-*Even if you can set up this on any Component, it is highly recommended to set it on the highest Component you have (suppose it is your page).*
+*To work properly, withData uses the getInitialProps method provided by next.js. This method is only callable from a page then you have to setup this HOC on a page.*
+
+**Error handling**<br/>
+Since the graphql-data of the children components is fetched from the withData component, if errors appears in any query, they will be catched by the HOC and not re-dispatched to the child component.
+So, in the server-rendering of a component, ***this.props.data.error* will always be empty.**
+However, because the withData HOC actually catches these errors, you can call *this.props.errors* **in the page component**. This property contains an array of all errors that occurred in children queries.
 
 **Default configuration**
 ```jsx
