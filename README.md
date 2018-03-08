@@ -150,7 +150,7 @@ export default withAuth({
 this.props.login()
 ```
 
-The login function will call a graphql mutation to get a token back. This token will be stored in a cookie and automatically injected inside the authorization headers of each apollo client request.<br/>
+The login function will call a graphql mutation to get a token back. This token will be stored in a cookie and automatically set as the authorization header of each apollo client request.<br/>
 So, the minimal configuration is :
 ```jsx
 {
@@ -160,8 +160,8 @@ So, the minimal configuration is :
 }
 ```
 
-Usually, the variables parameters is not fixed until the login form submission.<br/>
-So you can set/override the configuration inside the login function call like this :
+Usually, the variables parameter is not fixed until the login form submission.<br/>
+So you can set/override the configuration inside the login function call :
 ```jsx
 this.props.login({
   variables: {
