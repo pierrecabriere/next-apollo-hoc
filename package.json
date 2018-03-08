@@ -4,9 +4,10 @@
   "description": "Apollo Client adapter for next.js with universal support and authentication tools",
   "main": "next-apollo-hoc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel ./src -d ./",
-    "build:watch": "babel ./src --watch -d ./"
+    "build:watch": "babel ./src --watch -d ./",
+    "test": "jest",
+    "test:watch": "jest -o"
   },
   "repository": {
     "type": "git",
@@ -31,10 +32,13 @@
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "jest": "^22.4.2",
+    "react-test-renderer": "^16.2.0"
   },
   "dependencies": {
     "apollo-client": "2.2.6",
