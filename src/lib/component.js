@@ -10,14 +10,14 @@ export function getHOC(getComponent) {
       return getComponent(ComposedComponent, {})
     }
 
-    if (1 === configs.length && 'object' !== typeof configs[0]) {
-      configs[0] = {
-        default: configs[0]
+    configs.forEach((config, index) => {
+      if ('object' !== typeof config) {
+        configs[index] = { default: config }
       }
-    }
+    })
 
     const opts = Object.assign({}, ...configs)
 
-    return ComposedComponent => getComponent(ComposedComponent, opts)
+    return ComposedComponent => getComponent(ComposedComponent, opts, configs)
   }
 }

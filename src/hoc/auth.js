@@ -40,11 +40,11 @@ export default getHOC((ComposedComponent, opts) => {
     }
   }
 
-  let decorator = WithAuth
+  let hoc = WithAuth
   if (opts.login && opts.login.mutation)
-    decorator = graphql(opts.login.mutation, {
+    hoc = graphql(opts.login.mutation, {
       name: 'loginMutation'
-    })(decorator)
+    })(hoc)
 
-  return decorator
+  return hoc
 })

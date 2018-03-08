@@ -7,40 +7,18 @@ import apollo from '../apollo'
 export default async function (opts) {
   config.addAuth({ login: opts })
   opts = config.getAuth().login
-  let res
 
-  try {
-    const mutationOpts = {
-      variables: opts.variables
-    }
-    res = await this.loginMutation(mutationOpts)
-  } catch (e) {
-    console.error(e)
-    return false
+  const mutationOpts = {
+    variables: opts.variables
   }
-  const data = res.data
+  const { data } = await this.loginMutation(mutationOpts)
 
-  try {
-    const authToken = opts.authToken(data)
-    Cookies.set(CONST_AUTHTOKEN_COOKIE, authToken, { source: opts.cookieSource, days: 365 })
-  } catch (e) {
-    console.error(e)
-    return null
-  }
+  const authToken = opts.authToken(data)
+  Cookies.set(CONST_AUTHTOKEN_COOKIE, authToken, { source: opts.cookieSource, days: 365 })
 
-  try {
-    await opts.update(apollo.getClient(), data, opts.updateStore)
-  } catch (e) {
-    console.error(e)
-  }
+  await opts.update(apollo.getClient(), data, opts.updateStore)
 
-  if (opts.next) {
-    try {
-      opts.next(data)
-    } catch (e) {
-      console.error(e)
-    }
-  }
+  opts.next && opts.next(data)
 
   return data
 }

@@ -60,19 +60,11 @@ export default getHOC((ComposedComponent, opts) => {
       opts.guards.forEach(g => {
         let data = null
 
-        try {
-          data = apolloClient.readQuery({ query: g.query })
-        } catch (e) {
-          g.error && g.error(e)
-        }
+        data = apolloClient.readQuery({ query: g.query })
 
-        try {
-          guard = undefined === guard ? g.guard(data) : g.guard(data) && guard
+        guard = undefined === guard ? g.guard(data) : g.guard(data) && guard
 
-          g.next && g.next(guard, ctx)
-        } catch (e) {
-          g.error && g.error(e)
-        }
+        g.next && g.next(guard, ctx)
       })
 
       opts.next && opts.next(guard)
@@ -90,11 +82,13 @@ export default getHOC((ComposedComponent, opts) => {
     }
   }
 
-  let decorator = WithGuard
+  let hoc = WithGuard
   opts.guards.forEach(guard => {
     if (guard.query)
-      decorator = graphql(guard.query, { options: { errorPolicy: 'all' }})(decorator)
+      hoc = graphql(guard.query, {
+        options: { errorPolicy: 'all' }
+      })(hoc)
   })
 
-  return decorator
+  return hoc
 })

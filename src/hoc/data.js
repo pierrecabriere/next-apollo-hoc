@@ -42,6 +42,7 @@ export default getHOC((ComposedComponent, opts) => {
       const cookieSource = process.browser ? document : ctx.req.headers
       config.add({ cookieSource })
       const apolloClient = apollo.getClient()
+      let errors
       try {
         // Run all GraphQL queries
         await getDataFromTree(
@@ -57,9 +58,10 @@ export default getHOC((ComposedComponent, opts) => {
           }
         )
       } catch (error) {
-        // Prevent Apollo Client GraphQL errors from crashing SSR.
-        // Handle them in components via the data.error prop:
-        // http://dev.apollodata.com/react/api-queries.html#graphql-query-data-error
+        // catch queries errors
+        errors = error.queryErrors
+        // remove circular reference
+        errors.map(err => delete err.queryErrors)
       }
 
       if (!process.browser) {
@@ -72,6 +74,7 @@ export default getHOC((ComposedComponent, opts) => {
       serverState = {
         apollo: {
           data: apolloClient.cache.extract(),
+          errors
         }
       }
 

@@ -1,6 +1,6 @@
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
-import { ApolloLink, concat } from 'apollo-link'
+import { ApolloLink } from 'apollo-link'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import fetch from 'isomorphic-unfetch'
 import { Cookies } from 'flexible-cookies'
@@ -40,10 +40,12 @@ function createApolloClient(initialState) {
     return forward(operation)
   })
 
+  httpLink = authMiddleware.concat(httpLink)
+
   return new ApolloClient({
     connectToDevTools: process.browser,
     ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
-    link: concat(authMiddleware, httpLink),
+    link: httpLink,
     cache: new InMemoryCache().restore(initialState || {})
   })
 }
@@ -76,6 +78,12 @@ class Apollo {
 
     // Reuse client on the client-side
     if (!this.client) this.client = newApolloClient
+
+    return this.client
+  }
+
+  forceCreate(initialState) {
+    this.client = createApolloClient(initialState)
 
     return this.client
   }

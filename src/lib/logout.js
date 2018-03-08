@@ -8,28 +8,11 @@ export default async function (opts) {
   config.addAuth({ logout: opts })
   opts = config.getAuth().logout
 
-  try {
-    Cookies.delete(CONST_AUTHTOKEN_COOKIE, { source: opts.cookieSource })
-  } catch (e) {
-    console.error(e)
-    return null
-  }
+  Cookies.delete(CONST_AUTHTOKEN_COOKIE, { source: opts.cookieSource })
 
-  if (opts.update) {
-    try {
-      opts.update(apollo.getClient(), null, opts.updateStore)
-    } catch (e) {
-      console.error(e)
-    }
-  }
+  await opts.update(apollo.getClient(), null, opts.updateStore)
 
-  if (opts.next) {
-    try {
-      opts.next()
-    } catch (e) {
-      console.error(e)
-    }
-  }
+  opts.next && opts.next(null)
 
   return true
 }

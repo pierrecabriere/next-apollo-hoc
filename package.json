@@ -22,7 +22,7 @@
     "server-rendering"
   ],
   "author": "hello@pierrecabriere.fr",
-  "license": "MIT",
+  "license": "APACHE",
   "bugs": {
     "url": "https://github.com/pierrecabriere/next-apollo-hoc/issues"
   },
@@ -43,6 +43,7 @@
     "next": "^5.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
-    "react-apollo": "^2.1.0-rc.1"
+    "react-apollo": "^2.1.0-rc.1",
+    "react-loadable": "^5.3.1"
   }
 }
