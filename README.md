@@ -31,9 +31,9 @@ npm install --save next-apollo-hoc
 ```jsx
 import { withData } from 'next-apollo-hoc'
 
-const MyComponent = (props) => { // your page component
+const MyComponent = (props) => ( // your page component
   <div>Component that will load data from a graphql endpoint</div>
-}
+)
 
 export default withData('https://myendpoint.com')(MyComponent)
 ```
@@ -53,9 +53,34 @@ The **withData** HOC integrates apollo by wrapping your Component inside an Apol
 *To work properly, withData uses the getInitialProps method provided by next.js. This method is only callable from a page then you have to setup this HOC on a page.*
 
 **Error handling**<br/>
-Since the graphql-data of the children components is fetched from the withData component, if errors appears in any query, they will be catched by the HOC and not re-dispatched to the child component.
-So, in the server-rendering of a component, ***this.props.data.error* will always be empty.**
-However, because the withData HOC actually catches these errors, you can call *this.props.errors* **in the page component**. This property contains an array of all errors that occurred in children queries.
+Since the graphql-data of the children components is fetched from the withData component, if errors appears in any query, they will be catched by the HOC and not re-dispatched to the child component.<br/>
+So, **in the server-side rendering of a component, *this.props.data.error* will always be empty.**<br/>
+Because the withData HOC actually catches these errors, you can call *this.props.errors* **in the page component**. This property contains an array of all errors that occurred in children queries.<br/>
+However, your errorss will still appear in the client-side rendering, so you can process them.
+```jsx
+export default const MyChildComponentWithData = (props) => {
+  if (props.data.error) // always empty in the server-side rendering, but could contains errors whil client-processing
+    return (<div>There are some errors</div>)
+  else // If errors occcurs, the server will even render 'Hello' but the browser will instantly replace with 'There are some errors' after the page loading
+    return (<div>Hello !</div>)
+}
+```
+```jsx
+import { withData } from 'next-apollo-hoc'
+
+const MyComponent = (props) => { // your page component
+  if (props.errors) // contains all errors of children components queries
+    return (<div>There are some errors</div>)
+  else
+    return (
+      <div>
+        <MyChildComponentWithData />
+      </div>
+    )
+}
+
+export default withData({ ... })(MyComponent)
+```
 
 **Default configuration**
 ```jsx
@@ -251,8 +276,10 @@ A 'guard' prop will be injected in your component. The value will be the result 
 Then, you will be able to render the component depending on the guard result
 ```jsx
 const MyComponentForLoggedUsers = (props) => {
-  if (!props.guard) return 'Please log in'
-  else return 'Hello !'
+  if (!props.guard)
+    return (<div>Please log in</div>)
+  else
+    return (<div>Hello !</div>)
 }
 
 export default withGuard({
