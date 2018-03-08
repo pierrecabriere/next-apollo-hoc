@@ -74,12 +74,12 @@ export default getHOC((ComposedComponent, opts) => {
       serverState = {
         apollo: {
           data: apolloClient.cache.extract(),
-          errors
         }
       }
 
       return {
         serverState,
+        errors,
         ...composedInitialProps
       }
     }

@@ -90,13 +90,13 @@ exports.default = (0, _component.getHOC)((ComposedComponent, opts) => {
       // Extract query data from the Apollo store
       serverState = {
         apollo: {
-          data: apolloClient.cache.extract(),
-          errors
+          data: apolloClient.cache.extract()
         }
       };
 
       return _extends({
-        serverState
+        serverState,
+        errors
       }, composedInitialProps);
     }
 
