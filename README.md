@@ -52,7 +52,7 @@ export default withData({
 The **withData** HOC integrates apollo by wrapping your Component inside an ApolloProvider Component. The generated ApolloClient is keeping data from the server then this module has a full-universal support.<br/>
 *To work properly, withData uses the getInitialProps method provided by next.js. This method is only callable from a page then you have to setup this HOC on a page.*
 
-**Error handling**<br/>
+#### Error handling
 Since the graphql-data of the children components is fetched from the withData component, if errors appears in any query, they will be catched by the HOC and not re-dispatched to the child component.<br/>
 So, **in the server-side rendering of a component, *this.props.data.error* will always be empty.**<br/>
 Because the withData HOC actually catches these errors, you can call *this.props.errors* **in the page component**. This property contains an array of all errors that occurred in children queries.<br/>
@@ -82,7 +82,7 @@ const MyComponent = (props) => { // your page component
 export default withData({ ... })(MyComponent)
 ```
 
-**Default configuration**
+#### Default configuration
 ```jsx
 {
   endpoint: null, // graphql endpoint
@@ -146,7 +146,7 @@ export default withData({
 **next-apollo-hoc** provide tools to manage authentication (with token authorization) in your app. The HOC **withAuth** (that you can configure) will inject these tools inside your component props, so you will be able to use them where you want in your code.<br/>
 To configure **withAuth**, the config component has an addAuth method. Just like for the **withData** HOC, you can set a global configuration and override some options inside the HOC call, or set the whole configuration directly inside the HOC (see [how to externalize configuration](#3---externalize-configuration-recommended))
 
-**Default configuration**
+#### Default configuration
 ```jsx
 {
   defaultToken: null, // the token used in header authorization when no user is logged
@@ -156,7 +156,7 @@ To configure **withAuth**, the config component has an addAuth method. Just like
 }
 ```
 
-**Examples**
+#### Example
 ```jsx
 config.addAuth({
   tokenType: 'Basic',
@@ -222,7 +222,7 @@ updateStore function result will be used in the writeQuery method call of the Ap
 }
 ```
 
-**Default configuration**
+#### Default configuration
 ```jsx
 {
   update: async (apolloClient, data, updateStore) => { // The function called after the cookie is set
@@ -248,7 +248,7 @@ Just like login, you can configure an updateStore, update and next function.
 }
 ```
 
-**Default configuration**
+#### Default configuration
 ```jsx
 {
   update: async (apolloClient, data, updateStore) => { // The function called after the cookie is removed
@@ -300,7 +300,7 @@ config.addGuard({
 export default withGuard('logged')(MyComponentForLoggedUsers)
 ```
 
-**Override configuration**<br/>
+#### Override configuration
 You can also override a guard configuration by its name directly in the withGuard call :
 ```jsx
 export default withGuard({
@@ -309,7 +309,7 @@ export default withGuard({
 })(MyComponentForLoggedUsers)
 ```
 
-**Combine guards**<br/>
+#### Combine guards
 You can combine multiple guards, like below :
 ```jsx
 export default withGuard('logged', 'loggedAdmin')(MyComponentForLoggedAdminUsers)
