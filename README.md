@@ -323,36 +323,6 @@ export default withGuard('logged', 'loggedAdmin')(MyComponentForLoggedAdminUsers
 
 ### 7.1 - Use decorators
 
-Instead of wrapping the export of your Component inside HOCs, a good usage is to use ES6 decorators. To do such a thing, you have to use the *transform-decorators-legacy* babel plugin :
-```
-npm install --save-dev babel-plugin-transform-decorators-legacy
-```
-
-create or edit a .babelrc file at the root of your project
-```diff
-{
-  "presets": "next/babel",
-  "plugins": [
-+    "babel-plugin-inline-import-graphql-ast"
-  ]
-}
-```
-
-You can now use ES6 decorators in your project :
-```jsx
-import { withData } from '../lib/next-apollo-hoc'
-
-@withData
-@graphql(myQuery)
-export default class extends React.Component {
-  render() => (
-    <div>Component that will load data from a graphql endpoint</div>
-  )
-}
-```
-
-### 7.1 - Use decorators
-
 Instead of wrapping the export of your Component inside HOCs, you can use ES6 decorators. To do such a thing, you have to use the *transform-decorators-legacy* babel plugin :
 ```
 npm install --save-dev babel-plugin-transform-decorators-legacy
