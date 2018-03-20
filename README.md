@@ -54,9 +54,9 @@ The **withData** HOC integrates apollo by wrapping your Component inside an Apol
 
 #### Error handling
 Since the graphql-data of the children components is fetched from the withData component, if errors appears in any query, they will be catched by the HOC and not re-dispatched to the child component.<br/>
-So, **in the server-side rendering of a component, *this.props.data.error* will always be empty.**<br/>
+So, **in the server-side rendering of a component, *this.props.data.error* is always empty.**<br/>
 Because the withData HOC actually catches these errors, you can call *this.props.errors* **in the page component**. This property contains an array of all errors that occurred in children queries.<br/>
-However, your errorss will still appear in the client-side rendering, so you can process them.
+However, your errors will still appear in the client-side rendering, so you can process them.
 ```jsx
 export default const MyChildComponentWithData = (props) => {
   if (props.data.error) // always empty in the server-side rendering, but could contains errors whil client-processing
@@ -320,36 +320,6 @@ export default withGuard('logged', 'loggedAdmin')(MyComponentForLoggedAdminUsers
 > Example app to come
 
 ## 7 - tips and tricks
-
-### 7.1 - Use decorators
-
-Instead of wrapping the export of your Component inside HOCs, a good usage is to use ES6 decorators. To do such a thing, you have to use the *transform-decorators-legacy* babel plugin :
-```
-npm install --save-dev babel-plugin-transform-decorators-legacy
-```
-
-create or edit a .babelrc file at the root of your project
-```diff
-{
-  "presets": "next/babel",
-  "plugins": [
-+    "babel-plugin-inline-import-graphql-ast"
-  ]
-}
-```
-
-You can now use ES6 decorators in your project :
-```jsx
-import { withData } from '../lib/next-apollo-hoc'
-
-@withData
-@graphql(myQuery)
-export default class extends React.Component {
-  render() => (
-    <div>Component that will load data from a graphql endpoint</div>
-  )
-}
-```
 
 ### 7.1 - Use decorators
 
