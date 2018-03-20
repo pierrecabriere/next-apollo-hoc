@@ -40,7 +40,8 @@ export default getHOC((ComposedComponent, opts) => {
       // Run all GraphQL queries in the component tree
       // and extract the resulting data
       const cookieSource = process.browser ? document : ctx.req.headers
-      config.add({ cookieSource })
+      if (cookieSource)
+        config.add({ cookieSource })
       const apolloClient = apollo.getClient()
       let errors
       try {
