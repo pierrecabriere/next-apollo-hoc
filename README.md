@@ -1,4 +1,4 @@
-# Next-Apollo HOC 🚧
+# Next-Apollo HOC ⚡️
 
 [![NPM version](https://img.shields.io/npm/v/next-apollo-hoc.svg)](https://www.npmjs.com/package/next-apollo-hoc)
 [![Build Status](https://travis-ci.org/pierrecabriere/next-apollo-hoc.svg?branch=master)](https://travis-ci.org/pierrecabriere/next-apollo-hoc)
